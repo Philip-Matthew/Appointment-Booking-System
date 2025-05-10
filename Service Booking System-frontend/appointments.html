@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 class="heading">NexSlot</h1>
+            <ul>
+                <li><a href="index.html">Admin</a></li>
+                <li><a href="users.html" >Users</a></li>
+                <li><a href="appointments.html" class="active">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2 style="text-align: center; margin-bottom: 10px;">Book your Appointment</h2>
+
+            <div class="form-container">
+                <!-- <h3>Add New Appointment</h3> -->
+                <form id="appointment-form">
+                    <input type="hidden" id="appointment-id">
+                    <div class="form-group">
+                        <label for="user-select">User:</label>
+                        <select id="user-select" required>
+                            <option value="">Select User</option>
+                            <!-- Users will be loaded here -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Service Type:</label>
+                        <input type="text" id="service-type" required placeholder="Any service like car wash, Hair cut">
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-date">Date & Time:</label>
+                        <input type="datetime-local" id="appointment-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status">
+                            <option value="SCHEDULED">Scheduled</option>
+                            <option value="CONFIRMED">Confirmed</option>
+                            <option value="CANCELLED">Cancelled</option>
+                            <option value="COMPLETED">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes:</label>
+                        <textarea id="notes" rows="3" placeholder="Enter Notes"></textarea>
+                    </div>
+                    <div class="button-align">
+                        <button type="submit" id="save-appointment-btn">Save Appointment</button>
+                        <button type="button" id="cancel-appointment-btn" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h3 style="text-align: center; margin-bottom: 10px;">Appointment List</h3>
+                <table id="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Service</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Appointments will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NexSlot Booking System</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/appointments.js"></script>
+</body>
+
+</html>

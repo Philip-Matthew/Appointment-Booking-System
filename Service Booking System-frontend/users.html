@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        
+        <nav>
+            <h1 class="heading">NexSlot</h1>
+            <ul>
+                <!-- Home -->
+                <li><a href="index.html">Admin</a></li> 
+                <li><a href="users.html" class="active">Users</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2 style="text-align: center; margin-bottom: 10px;">User Management</h2>
+
+            <div class="form-container">
+                <h3  style="text-align: center; margin-bottom: 10px;">Add New User</h3>
+                <form id="user-form">
+                    <input type="hidden" id="user-id">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" required placeholder="Enter your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" placeholder="Enter Phone number">
+                    </div>
+                    <div class="button-align">
+                        <button type="submit" id="save-btn">Save User</button>
+                        <button type="button" id="cancel-btn" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h3  style="text-align: center; margin-bottom: 10px;">User List</h3>
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Users will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NexSlot Booking System</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/users.js"></script>
+</body>
+
+</html>

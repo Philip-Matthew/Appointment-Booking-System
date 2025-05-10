@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Booking System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 class="heading">NexSlot</h1>
+            <ul>
+                <li><a href="index.html" class="active">Admin</a></li>
+                <li><a href="users.html" >Users</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to NexSlot Booking System</h2>
+            <p>Manage your service appointments with ease</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <p id="user-count">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Appointments</h3>
+                <p id="appointment-count">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Upcoming Appointments</h3>
+                <p id="upcoming-count">Loading...</p>
+            </div>
+        </section>`
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NexSlot Booking System</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                if (window.api) {
+                    const users = await window.api.fetchUsers();
+                    document.getElementById('user-count').textContent = users.length;
+
+                    const appointments = await window.api.fetchAppointments();
+                    document.getElementById('appointment-count').textContent = appointments.length;
+
+                    const upcoming = appointments.filter(apt =>
+                        new Date(apt.appointmentDate) > new Date()
+                    );
+                    document.getElementById('upcoming-count').textContent = upcoming.length;
+                }
+            } catch (error) {
+                console.error('Error loading dashboard stats:', error);
+                document.getElementById('user-count').textContent = 'Error';
+                document.getElementById('appointment-count').textContent = 'Error';
+                document.getElementById('upcoming-count').textContent = 'Error';
+            }
+        });
+    </script>
+</body>
+
+</html>
