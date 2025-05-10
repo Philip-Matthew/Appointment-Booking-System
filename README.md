@@ -1,4 +1,4 @@
-# Appointment Booking System
+# Appointment Booking System - Naan Mudhalvan
 
 ![Java](https://img.shields.io/badge/Java-17-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1.0-green)
