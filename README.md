@@ -52,3 +52,10 @@ Before running the project, ensure you have installed:
 1. Create a MySQL database:
    ```sql
    CREATE DATABASE appointment_booking_db;
+
+## Team Members - Team 09
+
+- Jeevanandam D
+- Harini Devi S
+- Esther Mitchelle M
+- Philip Matthew S
